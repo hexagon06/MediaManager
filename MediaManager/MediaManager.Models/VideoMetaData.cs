@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MediaManager.Models
 {
-    public class Class1
+    internal class VideoMetaData : AbstractMediaMetaData
     {
+        public string Quality { get; set; }
     }
 }

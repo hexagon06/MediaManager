@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MediaManager.Models;
+using MediaManager.Models.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,12 @@ namespace MediaManager
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var types = Configuration.ApplicationConfig.MediaTypes;
+            var mediatypes = new MediaTypes(types);
         }
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaManager.Library
+namespace MediaManager.Models
 {
-    public class Class1
+    internal class AudioMetaData : AbstractMediaMetaData
     {
+
     }
 }
