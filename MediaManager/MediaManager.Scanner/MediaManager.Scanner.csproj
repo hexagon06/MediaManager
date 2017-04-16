@@ -39,8 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ScanCompareResult.cs" />
+    <Compile Include="DirectoryScanner.cs" />
+    <Compile Include="FileComparer.cs" />
+    <Compile Include="FilesComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MediaManager.Interfaces\MediaManager.Interfaces.csproj">
+      <Project>{bd029fe0-e650-452d-bcc6-2c85194507ee}</Project>
+      <Name>MediaManager.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

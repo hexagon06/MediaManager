@@ -1,0 +1,34 @@
+﻿<Window x:Class="MediaManager.ExplorerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediaManager"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignData Source=Design/DesignExplorerViewModel.xaml}"
+        Title="ExplorerWindow" Height="300" Width="300">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="button" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Margin" Value="3,0,0,0"/>
+                <Setter Property="Padding" Value="3"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="b_rescan"
+                    Style="{StaticResource button}" 
+                    Content="Rescan All" VerticalAlignment="Center"
+                    Command="{Binding RescanAllCommand}"/>
+            <Button x:Name="b_new" 
+                    Style="{StaticResource button}"
+                    Content="Add new Folder" VerticalAlignment="Center"
+                    Command="{Binding AddFolderCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

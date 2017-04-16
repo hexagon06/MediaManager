@@ -31,6 +31,9 @@ namespace MediaManager
         {
             var types = Configuration.ApplicationConfig.MediaTypes;
             var mediatypes = new MediaTypes(types);
+
+            var explorer = new ExplorerWindow();
+            explorer.Show();
         }
     }
 }

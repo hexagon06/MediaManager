@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaManager.Scanner
+namespace MediaManager.Business
 {
-    public class Class1
+    public interface IScanResultFactory
     {
+        IScanResult File(string file);
     }
 }

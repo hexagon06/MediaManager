@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaManager.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,10 +52,10 @@ namespace MediaManager.Models
             switch(mediaType)
             {
                 case "Video":
-                    result = new VideoMetaData();
+                    result = new VideoMetaData() as IMediaMetaData;
                     break;
                 case "Audio":
-                    result = new AudioMetaData();
+                    result = new AudioMetaData() as IMediaMetaData;
                     break;
             }
             return result;

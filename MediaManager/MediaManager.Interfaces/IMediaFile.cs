@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MediaManager.Models
+namespace MediaManager.Interfaces
 {
     public interface IMediaFile
     {
