@@ -21,8 +21,10 @@
             <ColumnDefinition Width="50"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <CheckBox Content="Ignore"/>
-        <CheckBox Grid.Column="1" Content="Add"/>
+        <Button Content="Ignore" Style="{StaticResource button}"
+                Command="{Binding IgnoreAllCommand}"/>
+        <Button Grid.Column="1" Content="Add" Style="{StaticResource button}"
+                Command="{Binding AddAllCommand}"/>
         <Label Grid.Column="2" Content="{Binding Label}"/>
         
         <ScrollViewer Grid.ColumnSpan="3" Grid.Row="1" VerticalScrollBarVisibility="Auto">

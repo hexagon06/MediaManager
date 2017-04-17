@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace MediaManager.Business.Scanner
 {
-    internal class ScanResultChoice : IScanResultChoice
+    internal class ScanResultChoice : ViewModelBase, IScanResultChoice
     {
         public IScanResult ScanResult { get; set; }
         public string Text
@@ -15,9 +16,20 @@ namespace MediaManager.Business.Scanner
             }
         }
 
-        public bool? IsAddOption { get; set; }
-        public bool? IsIgnoreOption { get; set; }
-        
+        private bool? isAddOption;
+        private bool? isIgnoreOption;
+
+        public bool? IsAddOption
+        {
+            get { return isAddOption; }
+            set { Set<bool?>(() => this.IsAddOption, ref isAddOption, value); }
+        }
+        public bool? IsIgnoreOption
+        {
+            get { return isIgnoreOption; }
+            set { Set<bool?>(() => this.IsIgnoreOption, ref isIgnoreOption, value); }
+        }
+
         public ScanResultChoice(IScanResult r)
             :base()
         {
