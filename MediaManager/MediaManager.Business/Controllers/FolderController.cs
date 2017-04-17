@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediaManager.Interfaces;
+using System.Data.Entity;
 
 namespace MediaManager.Business.Controllers
 {
@@ -20,7 +21,9 @@ namespace MediaManager.Business.Controllers
 
         public IEnumerable<IFolder> GetList()
         {
-            return FolderRepository.Entities.ToList();
+            return FolderRepository.Entities
+                .Include(f => f.Files)
+                .ToList();
         }
 
         public IFolder Add(IFolder folder)

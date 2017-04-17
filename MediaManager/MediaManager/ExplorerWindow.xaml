@@ -23,7 +23,7 @@
                     Command="{Binding AddFolderCommand}"/>
         </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Files}">
+            <ItemsControl ItemsSource="{Binding Folders}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -31,8 +31,8 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="50"/>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="2" Content="{Binding Name}" />
-                            <Label Grid.Column="2" Content="{Binding FileCount}" />
+                            <Label Content="{Binding Name}" />
+                            <Label Grid.Column="1" Content="{Binding FileCount}" />
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
