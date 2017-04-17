@@ -15,6 +15,6 @@ namespace MediaManager.Entity
         public string FileLocation { get; set; }
         public string FileName { get; set; }
         public string Extension { get; set; }
-        public int FileSize { get; set; }
+        public long FileSize { get; set; }
     }
 }

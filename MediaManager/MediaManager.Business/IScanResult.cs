@@ -6,5 +6,6 @@ namespace MediaManager.Business
     {
         ScanResult Result { get; }
         string Path { get; }
+        string Name { get; set; }
     }
 }

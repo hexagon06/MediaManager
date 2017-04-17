@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MediaManager.Business
 {
-    public interface IUserInput
+    public enum ScanResultOption : short
     {
-        bool AskFolder(IStringRequest request);
-        IEnumerable<IScanResult> ProcessResult(IEnumerable<IScanResult> result);
+        Ignore,
+        Add,
+        Missing
     }
 }

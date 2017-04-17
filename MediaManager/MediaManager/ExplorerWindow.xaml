@@ -7,14 +7,6 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignData Source=Design/DesignExplorerViewModel.xaml}"
         Title="ExplorerWindow" Height="300" Width="300">
-    <Window.Resources>
-        <ResourceDictionary>
-            <Style x:Key="button" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-                <Setter Property="Margin" Value="3,0,0,0"/>
-                <Setter Property="Padding" Value="3"/>
-            </Style>
-        </ResourceDictionary>
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -30,5 +22,21 @@
                     Content="Add new Folder" VerticalAlignment="Center"
                     Command="{Binding AddFolderCommand}"/>
         </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Files}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="2" Content="{Binding Name}" />
+                            <Label Grid.Column="2" Content="{Binding FileCount}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Window>

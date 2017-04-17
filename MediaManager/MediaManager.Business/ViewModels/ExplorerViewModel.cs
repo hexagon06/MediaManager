@@ -24,18 +24,18 @@ namespace MediaManager.Business.ViewModels
 
         public ObservableCollection<IFolder> Folders { get; private set; }
 
-        private IRepository<Folder> FolderRepository { get; set; }
-        private IRepository<File> FileRepository { get; set; }
+        private IFolderController FolderController { get; set; }
+        private IFileController FileController { get; set; }
         private IFolderScanner Scanner { get; set; }
         private IUserInput Input { get; set; }
 
-        public ExplorerViewModel(IRepository<Folder> folderRepository, IRepository<File> fileRepository, IFolderScanner scanner, IUserInput input)
+        public ExplorerViewModel(IFolderController folderController, IFileController fileController, IFolderScanner scanner, IUserInput input)
         {
-            FolderRepository = folderRepository;
-            FileRepository = fileRepository;
+            FolderController = folderController;
+            FileController = fileController;
             Scanner = scanner;
             Input = input;
-            Folders = new ObservableCollection<IFolder>(FolderRepository.Entities.ToList());
+            Folders = new ObservableCollection<IFolder>(FolderController.GetList());
         }
 
         private void ExecuteRescan()
@@ -57,17 +57,16 @@ namespace MediaManager.Business.ViewModels
                 if(IsDirectory(path) &&
                     Directory.Exists(path))
                 {
-                    var existing = FolderRepository.Entities.SingleOrDefault(f => f.Path == path);
+                    var existing = FolderController.GetList().SingleOrDefault(f => f.Path == path);
                     if (existing == null)
                     {
-                        var folder = new Folder()
+                        IFolder folder = new Folder()
                         {
                             Path = path,
                             Name = Path.GetDirectoryName(path)
                         };
                         
-                        folder = FolderRepository.Add(folder);
-                        FolderRepository.Save();
+                        folder = FolderController.Add(folder);
 
                         Folders.Add(folder);
 
@@ -102,6 +101,22 @@ namespace MediaManager.Business.ViewModels
         private void ScanFolder(IFolder folder)
         {
             var result = Scanner.Scan(folder);
+
+            var confirmed = Input.ProcessResult(result);
+
+            IEnumerable<IFile> files = confirmed
+                .Where(r => r.Result == ScanResult.New)
+                .Select(sr => new File()
+                {
+                    FileName = Path.GetFileNameWithoutExtension(sr.Path),
+                    Extension = Path.GetExtension(sr.Path),
+                    FileLocation = sr.Path,
+                    Root = folder.AsFolder(),
+                    RootId = folder.Id,
+                    FileSize = new FileInfo(sr.Path).Length
+                });
+
+            FileController.Add(files, folder.Id);
         }
     }
 }

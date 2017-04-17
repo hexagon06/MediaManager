@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <Style x:Key="button" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Margin" Value="3,0,0,0"/>
+                <Setter Property="Padding" Value="3"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

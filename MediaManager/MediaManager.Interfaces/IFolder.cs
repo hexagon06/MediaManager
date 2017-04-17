@@ -11,5 +11,6 @@ namespace MediaManager.Interfaces
         int Id { get; set; }
         string Name { get; set; }
         string Path { get; set; }
+        int FileCount { get; }
     }
 }

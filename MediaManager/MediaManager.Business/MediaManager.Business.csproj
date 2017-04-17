@@ -70,17 +70,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessModule.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\FolderController.cs" />
     <Compile Include="IExplorerViewModel.cs" />
+    <Compile Include="IFileController.cs" />
+    <Compile Include="IFolderController.cs" />
     <Compile Include="IFolderScanner.cs" />
+    <Compile Include="InterfaceHelper.cs" />
     <Compile Include="IScanResult.cs" />
+    <Compile Include="IScanResultChoice.cs" />
     <Compile Include="IScanResultFactory.cs" />
+    <Compile Include="IScanResultViewModel.cs" />
     <Compile Include="IStringRequest.cs" />
     <Compile Include="IUserInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scanner\FolderScanner.cs" />
     <Compile Include="Scanner\ScanResult.cs" />
+    <Compile Include="Scanner\ScanResultChoice.cs" />
     <Compile Include="Scanner\ScanResultFactory.cs" />
+    <Compile Include="Scanner\ScanResultViewModel.cs" />
     <Compile Include="ScanResult.cs" />
+    <Compile Include="ScanResultOption.cs" />
     <Compile Include="ViewModels\ExplorerViewModel.cs" />
     <Compile Include="ViewModels\StringRequest.cs" />
   </ItemGroup>

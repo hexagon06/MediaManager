@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediaManager.Interfaces;
 
 namespace MediaManager.Business
 {
-    public interface IUserInput
+    public interface IFileController
     {
-        bool AskFolder(IStringRequest request);
-        IEnumerable<IScanResult> ProcessResult(IEnumerable<IScanResult> result);
+        void Add(IEnumerable<IFile> files, int folderId);
     }
 }

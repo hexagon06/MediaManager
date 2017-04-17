@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using MediaManager.Business;
 using Microsoft.Win32;
+using System.Linq;
 
 namespace MediaManager.IoC
 {
@@ -19,6 +21,24 @@ namespace MediaManager.IoC
             }
 
             return false;
+        }
+
+        public IEnumerable<IScanResult> ProcessResult(IEnumerable<IScanResult> result)
+        {
+            var changed = result.Where(r => r.Result != ScanResult.Unchanged);
+            var viewmodel = IoCKernel.Get<IScanResultViewModel>(
+                IoCKernel.Param("results", changed));
+            var window = new ScanResultWindow(viewmodel);
+
+            if(window.ShowDialog()??false)
+            {
+                return viewmodel
+                    .Where(c => (c.IsIgnoreOption ?? false) == false)
+                    .Select(c => c.ScanResult)
+                    .ToList();
+            }
+
+            return new List<IScanResult>();
         }
     }
 }

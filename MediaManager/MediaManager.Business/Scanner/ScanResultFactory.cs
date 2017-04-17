@@ -20,7 +20,8 @@ namespace MediaManager.Business.Scanner
         {
             var result = new ScanResult()
             {
-                Path = file
+                Path = file,
+                Name = System.IO.Path.GetFileName(file)
             };
 
             var existing = FileRepository.Entities
