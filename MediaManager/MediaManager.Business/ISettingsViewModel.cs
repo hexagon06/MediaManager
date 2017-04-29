@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MediaManager.Business
 {
-    public interface IScanResultFactory
+    public interface ISettingsViewModel
     {
-        IScanResult File(string file);
-
-        void Refresh();
+        string AcceptedVideoFormats { get; set; }
+        ICommand SaveSettingsCommand { get; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaManager.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,12 @@ namespace MediaManager.Controls
 
         private void Flyout_IsOpenChanged(object sender, RoutedEventArgs e)
         {
+            LoadDataContext();
+        }
 
+        private void LoadDataContext()
+        {
+            DataContext = IoCKernel.Get<ISettingsViewModel>();
         }
     }
 }

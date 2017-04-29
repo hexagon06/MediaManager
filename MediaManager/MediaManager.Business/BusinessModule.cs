@@ -17,6 +17,8 @@ namespace MediaManager.Business
             Bind<IScanResultViewModel>().To<ScanResultViewModel>();
             Bind<IFolderController>().To<FolderController>().InSingletonScope();
             Bind<IFileController>().To<FileController>().InSingletonScope();
+            Bind<ISettingController>().To<SettingController>();
+            Bind<ISettingsViewModel>().To<SettingsViewModel>().InSingletonScope();
         }
     }
 }

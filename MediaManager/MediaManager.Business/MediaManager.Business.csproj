@@ -56,6 +56,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -72,6 +73,7 @@
     <Compile Include="BusinessModule.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\FolderController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="IExplorerViewModel.cs" />
     <Compile Include="IFileController.cs" />
     <Compile Include="IFolderController.cs" />
@@ -81,6 +83,8 @@
     <Compile Include="IScanResultChoice.cs" />
     <Compile Include="IScanResultFactory.cs" />
     <Compile Include="IScanResultViewModel.cs" />
+    <Compile Include="ISettingController.cs" />
+    <Compile Include="ISettingsViewModel.cs" />
     <Compile Include="IStringRequest.cs" />
     <Compile Include="IUserInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +96,7 @@
     <Compile Include="ScanResult.cs" />
     <Compile Include="ScanResultOption.cs" />
     <Compile Include="ViewModels\ExplorerViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\StringRequest.cs" />
   </ItemGroup>
   <ItemGroup>

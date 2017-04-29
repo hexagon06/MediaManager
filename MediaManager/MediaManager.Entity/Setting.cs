@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaManager.Business
+namespace MediaManager.Entity
 {
-    public interface IScanResultFactory
+    public class Setting
     {
-        IScanResult File(string file);
-
-        void Refresh();
+        public string Id { get; set; }
+        public string Value { get; set; }
     }
 }

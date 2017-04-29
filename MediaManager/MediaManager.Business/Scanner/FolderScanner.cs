@@ -11,10 +11,12 @@ namespace MediaManager.Business.Scanner
     class FolderScanner : IFolderScanner
     {
         private IScanResultFactory ResultFactory { get; set; }
+        private ISettingsViewModel Settings { get; set; }
 
-        public FolderScanner(IScanResultFactory factory)
+        public FolderScanner(IScanResultFactory factory, ISettingsViewModel settings)
         {
             ResultFactory = factory;
+            Settings = settings;
         }
 
         public IEnumerable<IScanResult> Scan(IFolder folder)
@@ -45,16 +47,17 @@ namespace MediaManager.Business.Scanner
 
         private IEnumerable<IScanResult> ScanDirectory(string path)
         {
+            ResultFactory.Refresh();
             var results = new List<IScanResult>();
-            var directories = Directory.GetDirectories(path);
-            foreach (string dir in directories)
-            {
-                results.AddRange(ScanDirectory(dir));
-            }
-            var files = Directory.GetFiles(path);
+            IEnumerable<string> acceptedExtensions = Settings.AcceptedVideoFormats.Split(',');
+            var files = Directory.GetFiles(path,"*",SearchOption.AllDirectories);
             foreach (var file in files)
             {
-                results.Add(ResultFactory.File(file));
+                var result = ResultFactory.File(file);
+                if(acceptedExtensions.Contains(result.Extension))
+                {
+                    results.Add(result);
+                }
             }
             return results;
         }

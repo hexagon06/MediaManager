@@ -13,6 +13,7 @@ namespace MediaManager.Entity
     {
         public virtual IDbSet<Folder> Folder { get; set; }
         public virtual IDbSet<File> Files { get; set; }
+        public virtual IDbSet<Setting> Settings { get; set; }
 
         public EntityContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
@@ -29,6 +30,7 @@ namespace MediaManager.Entity
         {
             modelBuilder.Configurations.Add(new FolderConfiguration());
             modelBuilder.Configurations.Add(new FileConfiguration());
+            modelBuilder.Configurations.Add(new SettingConfiguration());
         }
     }
 }

@@ -28,9 +28,10 @@ namespace MediaManager.Business.Controllers
 
         public IFolder Add(IFolder folder)
         {
-            FolderRepository.Add(folder.AsFolder());
+            Folder concrete = folder.AsFolder();
+            FolderRepository.Add(concrete);
             FolderRepository.Save();
-            return folder;
+            return concrete;
         }
     }
 }

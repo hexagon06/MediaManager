@@ -109,7 +109,7 @@ namespace MediaManager.Business.ViewModels
                 .Select(sr => new File()
                 {
                     FileName = Path.GetFileNameWithoutExtension(sr.Path),
-                    Extension = Path.GetExtension(sr.Path),
+                    Extension = sr.Extension,
                     FileLocation = sr.Path,
                     Root = folder.AsFolder(),
                     RootId = folder.Id,

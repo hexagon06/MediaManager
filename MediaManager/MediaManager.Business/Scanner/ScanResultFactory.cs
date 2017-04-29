@@ -11,9 +11,16 @@ namespace MediaManager.Business.Scanner
     class ScanResultFactory : IScanResultFactory
     {
         private IRepository<File> FileRepository { get; set; }
+        private IEnumerable<File> Files { get; set; }
         public ScanResultFactory(IRepository<File> fileRepository)
         {
             FileRepository = fileRepository;
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            Files = FileRepository.Entities.ToList();
         }
 
         public IScanResult File(string file)
@@ -21,10 +28,11 @@ namespace MediaManager.Business.Scanner
             var result = new ScanResult()
             {
                 Path = file,
-                Name = System.IO.Path.GetFileName(file)
+                Name = System.IO.Path.GetFileName(file),
+                Extension = System.IO.Path.GetExtension(file)
             };
 
-            var existing = FileRepository.Entities
+            var existing = Files
                 .SingleOrDefault(f => f.FileLocation == file);
 
             if (existing == null)
