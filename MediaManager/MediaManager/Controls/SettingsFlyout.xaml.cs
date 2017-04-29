@@ -1,6 +1,4 @@
-﻿using MediaManager.Models;
-using MediaManager.Models.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,25 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MediaManager
+namespace MediaManager.Controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SettingsFlyout.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class SettingsFlyout
     {
-        public MainWindow()
+        public SettingsFlyout()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Flyout_Loaded(object sender, RoutedEventArgs e)
         {
-            var types = Configuration.ApplicationConfig.MediaTypes;
-            var mediatypes = new MediaTypes(types);
 
-            var explorer = new ExplorerWindow();
-            explorer.Show();
+        }
+
+        private void Flyout_IsOpenChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

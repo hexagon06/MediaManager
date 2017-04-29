@@ -63,7 +63,7 @@ namespace MediaManager.Business.ViewModels
                         IFolder folder = new Folder()
                         {
                             Path = path,
-                            Name = Path.GetDirectoryName(path)
+                            Name = Path.GetFileNameWithoutExtension(path)
                         };
                         
                         folder = FolderController.Add(folder);

@@ -18,7 +18,7 @@ namespace MediaManager
     /// <summary>
     /// Interaction logic for ScanResultWindow.xaml
     /// </summary>
-    public partial class ScanResultWindow : Window
+    public partial class ScanResultWindow
     {
         public ScanResultWindow(IScanResultViewModel viewmodel)
         {

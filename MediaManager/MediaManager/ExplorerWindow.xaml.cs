@@ -18,7 +18,7 @@ namespace MediaManager
     /// <summary>
     /// Interaction logic for ExplorerWindow.xaml
     /// </summary>
-    public partial class ExplorerWindow : Window
+    public partial class ExplorerWindow
     {
         public ExplorerWindow()
         {

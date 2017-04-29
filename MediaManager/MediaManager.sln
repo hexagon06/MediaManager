@@ -21,6 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaManager.Business", "Me
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaManager.Entity", "MediaManager.Entity\MediaManager.Entity.csproj", "{7C5FA995-E958-40BA-9201-7C08BC33778E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{01BC906D-5682-433F-9D7F-47879E54A872}"
+	ProjectSection(SolutionItems) = preProject
+		extensions sql.sql = extensions sql.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
