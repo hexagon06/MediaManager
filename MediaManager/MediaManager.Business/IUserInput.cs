@@ -9,6 +9,6 @@ namespace MediaManager.Business
     public interface IUserInput
     {
         bool AskFolder(IStringRequest request);
-        IEnumerable<IScanResult> ProcessResult(IEnumerable<IScanResult> result);
+        IEnumerable<IScanResult> ProcessResult(string folderName, IEnumerable<IScanResult> result);
     }
 }

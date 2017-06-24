@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:MediaManager"
         mc:Ignorable="d"
         d:DataContext="{d:DesignData Source=Design/DesignScanResultViewModel.xaml}"
-        Title="ScanResultWindow" Height="300" Width="300">
+        Title="{Binding Label}" Height="300" Width="300">
     <Controls:MetroWindow.Resources>
         <local:NullVisibilityConverter x:Key="NullToVisibilityConverter"/>
     </Controls:MetroWindow.Resources>
@@ -26,7 +26,6 @@
                 Command="{Binding IgnoreAllCommand}"/>
         <Button Grid.Column="1" Content="Add" Style="{StaticResource button}"
                 Command="{Binding AddAllCommand}"/>
-        <Label Grid.Column="2" Content="{Binding Label}"/>
         
         <ScrollViewer Grid.ColumnSpan="3" Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding}">

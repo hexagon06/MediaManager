@@ -102,7 +102,7 @@ namespace MediaManager.Business.ViewModels
         {
             var result = Scanner.Scan(folder);
 
-            var confirmed = Input.ProcessResult(result);
+            var confirmed = Input.ProcessResult(folder.Name, result);
 
             IEnumerable<IFile> files = confirmed
                 .Where(r => r.Result == ScanResult.New)
