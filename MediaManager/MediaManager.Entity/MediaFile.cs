@@ -8,12 +8,8 @@ namespace MediaManager.Entity
 
     public class MediaFile : IMediaFile
     {
-        //[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //[Key, ForeignKey("Id")]
         public int MediaFileId { get; set; }
-
         public File File { get; set; }
-        //public int FileId { get; set; }
         public string MediaType { get; set; }
         public string Label { get; set; }
         public DateTime DateAdded { get; set; }
