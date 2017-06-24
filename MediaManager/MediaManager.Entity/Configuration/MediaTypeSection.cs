@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaManager.Models.Configuration
+namespace MediaManager.Entity.Configuration
 {
     public class MediaTypeSection : ConfigurationSection
     {

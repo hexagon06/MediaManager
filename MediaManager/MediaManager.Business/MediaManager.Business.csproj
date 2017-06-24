@@ -73,11 +73,14 @@
     <Compile Include="BusinessModule.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\FolderController.cs" />
+    <Compile Include="Controllers\MediaFileController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="IExplorerViewModel.cs" />
     <Compile Include="IFileController.cs" />
     <Compile Include="IFolderController.cs" />
     <Compile Include="IFolderScanner.cs" />
+    <Compile Include="IMediaFactory.cs" />
+    <Compile Include="IMediaFileController.cs" />
     <Compile Include="InterfaceHelper.cs" />
     <Compile Include="IScanResult.cs" />
     <Compile Include="IScanResultChoice.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="ISettingsViewModel.cs" />
     <Compile Include="IStringRequest.cs" />
     <Compile Include="IUserInput.cs" />
+    <Compile Include="MediaFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scanner\FolderScanner.cs" />
     <Compile Include="Scanner\ScanResult.cs" />
@@ -111,6 +115,10 @@
     <ProjectReference Include="..\MediaManager.Interfaces\MediaManager.Interfaces.csproj">
       <Project>{bd029fe0-e650-452d-bcc6-2c85194507ee}</Project>
       <Name>MediaManager.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaManager.Models\MediaManager.Models.csproj">
+      <Project>{D7534556-E840-43A2-8473-3E7CC771484E}</Project>
+      <Name>MediaManager.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

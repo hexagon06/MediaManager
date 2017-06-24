@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaManager.Entity.Configuration
+namespace MediaManager.Entity.EntityConfiguration
 {
     class FileConfiguration : EntityTypeConfiguration<File>
     {
         public FileConfiguration()
         {
-            this.HasKey(t => t.Id)
-                .Property(t => t.Id)
+            this.HasKey(t => t.FileId)
+                .Property(t => t.FileId)
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
             this.Property(t => t.FileLocation);
@@ -24,6 +24,9 @@ namespace MediaManager.Entity.Configuration
             this.HasRequired(f => f.Root)
                 .WithMany(f => f.Files)
                 .HasForeignKey(f => f.RootId);
+
+            this.HasOptional(f => f.MediaFile)
+                .WithRequired(m => m.File);
         }
     }
 }

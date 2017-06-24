@@ -1,22 +1,23 @@
-﻿using MediaManager.Interfaces;
+﻿using MediaManager.Entity;
+using MediaManager.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaManager.Models
+namespace MediaManager.Business
 {
-    public class MediaFactory
+    public class MediaFactory : IMediaFactory
     {
         private MediaTypes Types { get; set; }
-        public MediaFactory(MediaTypes types)
+        public MediaFactory(MediaTypes mediaTypes)
         {
-            if(types == null)
+            if(mediaTypes == null)
             {
                 throw new ArgumentNullException("types");
             }
-            Types = types;
+            Types = mediaTypes;
         }
 
         public IMediaFile GetMediaFile(IFile file)
@@ -30,8 +31,10 @@ namespace MediaManager.Models
             IProductionData productionData = GetProductionData();
             var media = new MediaFile()
             {
+                MediaFileId = file.FileId,
                 DateAdded = DateTime.Now,
-                FileInfo = file,
+                Label = file.FileName,
+                File =file.AsFile(),
                 MediaType = mediaType,
                 MetaData = metaData,
                 ProductionData = productionData
@@ -65,7 +68,5 @@ namespace MediaManager.Models
         {
             return Types.GetFileType(file.Extension);
         }
-
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MediaManager.Business;
+using Ninject.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ using System.Windows.Shapes;
 
 namespace MediaManager
 {
+    using Configuration;
+    using Entity;
     /// <summary>
     /// Interaction logic for ExplorerWindow.xaml
     /// </summary>
@@ -24,7 +27,10 @@ namespace MediaManager
         {
             InitializeComponent();
 
-            DataContext = IoCKernel.Get<IExplorerViewModel>();
+            var types = ApplicationConfig.MediaTypes;
+            var mediatypes = new MediaTypes(types);
+
+            DataContext = IoCKernel.Get<IExplorerViewModel>(new ConstructorArgument("mediaTypes", mediatypes,true));
         }
     }
 }

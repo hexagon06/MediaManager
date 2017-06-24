@@ -15,7 +15,7 @@ namespace MediaManager
 
         public static T Get<T>()
         {
-            return _kernel.Get<T>();
+             return _kernel.Get<T>();
         }
 
         public static T Get<T>(params IParameter[] parameters)

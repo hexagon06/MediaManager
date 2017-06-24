@@ -28,15 +28,17 @@ namespace MediaManager.Business.ViewModels
 
         private IFolderController FolderController { get; set; }
         private IFileController FileController { get; set; }
+        private IMediaFileController MediaFileController { get; set; }
         private IFolderScanner Scanner { get; set; }
         private IUserInput Input { get; set; }
 
-        public ExplorerViewModel(IFolderController folderController, IFileController fileController, IFolderScanner scanner, IUserInput input)
+        public ExplorerViewModel(IFolderController folderController, IFileController fileController, IMediaFileController mediaFileController, IFolderScanner scanner, IUserInput input)
         {
             FolderController = folderController;
             FileController = fileController;
             Scanner = scanner;
             Input = input;
+            MediaFileController = mediaFileController;
             Folders = new ObservableCollection<IFolder>(FolderController.GetList());
         }
 
@@ -123,9 +125,9 @@ namespace MediaManager.Business.ViewModels
                     FileSize = new FileInfo(sr.Path).Length
                 });
 
-            FileController.Add(files, folder.Id);
-
-
+            var processed = FileController.Add(files, folder.Id);
+            
+            MediaFileController.AddFor(processed);
         }
     }
 }

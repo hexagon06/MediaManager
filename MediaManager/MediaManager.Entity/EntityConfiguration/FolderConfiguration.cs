@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaManager.Entity.Configuration
+namespace MediaManager.Entity.EntityConfiguration
 {
     class FolderConfiguration : EntityTypeConfiguration<Folder>
     {

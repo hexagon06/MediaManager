@@ -1,12 +1,10 @@
-﻿using MediaManager.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace MediaManager.Models
+namespace MediaManager.Entity
 {
-    internal abstract class AbstractMediaMetaData : IMediaMetaData
+    using Interfaces;
+
+    public abstract class AbstractMediaMetaData : IMediaMetaData
     {
         public AbstractMediaMetaData()
         {

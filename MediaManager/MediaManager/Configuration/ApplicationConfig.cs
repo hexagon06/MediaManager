@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MediaManager.Configuration
 {
-    using Models.Configuration;
+    using Entity.Configuration;
 
     static class ApplicationConfig
     {

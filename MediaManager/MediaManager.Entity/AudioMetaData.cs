@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaManager.Models
+namespace MediaManager.Entity
 {
-    internal class VideoMetaData : AbstractMediaMetaData
+    public class AudioMetaData : AbstractMediaMetaData
     {
-        public string Quality { get; set; }
+
     }
 }

@@ -9,6 +9,6 @@ namespace MediaManager.Business
 {
     public interface IFileController
     {
-        void Add(IEnumerable<IFile> files, int folderId);
+        IEnumerable<IFile> Add(IEnumerable<IFile> files, int folderId);
     }
 }

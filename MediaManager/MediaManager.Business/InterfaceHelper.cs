@@ -28,7 +28,20 @@ namespace MediaManager.Business
                 FileLocation = file.FileLocation,
                 FileName = file.FileName,
                 FileSize = file.FileSize,
-                Id = file.Id
+                FileId = file.FileId
+            };
+        }
+
+        public static MediaFile AsMediaFile(this IMediaFile mediafile)
+        {
+            return new MediaFile()
+            {
+                MediaFileId = mediafile.MediaFileId,
+                DateAdded = mediafile.DateAdded,
+                Label = mediafile.Label,
+                MediaType = mediafile.MediaType,
+                MetaData = mediafile.MetaData,
+                ProductionData = mediafile.ProductionData,
             };
         }
     }

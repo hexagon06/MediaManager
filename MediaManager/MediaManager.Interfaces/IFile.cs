@@ -7,7 +7,7 @@ namespace MediaManager.Interfaces
 {
     public interface IFile
     {
-        int Id { get; set; }
+        int FileId { get; set; }
         string FileLocation { get; set; }
         string FileName { get; }
         string Extension { get; }

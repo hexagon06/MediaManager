@@ -184,7 +184,9 @@
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MediaManager.Business\MediaManager.Business.csproj">
@@ -200,7 +202,7 @@
       <Name>MediaManager.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MediaManager.Models\MediaManager.Models.csproj">
-      <Project>{d7534556-e840-43a2-8473-3e7cc771484e}</Project>
+      <Project>{D7534556-E840-43A2-8473-3E7CC771484E}</Project>
       <Name>MediaManager.Models</Name>
     </ProjectReference>
   </ItemGroup>

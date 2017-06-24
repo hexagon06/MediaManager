@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,14 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\SettingConfiguration.cs" />
-    <Compile Include="Configuration\FileConfiguration.cs" />
-    <Compile Include="Configuration\FolderConfiguration.cs" />
+    <Compile Include="AbstractMediaMetaData.cs" />
+    <Compile Include="AudioMetaData.cs" />
+    <Compile Include="Configuration\MediaTypeCollection.cs" />
+    <Compile Include="Configuration\MediaTypeElement.cs" />
+    <Compile Include="Configuration\MediaTypeSection.cs" />
+    <Compile Include="EntityConfiguration\MediaFileConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SettingConfiguration.cs" />
+    <Compile Include="EntityConfiguration\FileConfiguration.cs" />
+    <Compile Include="EntityConfiguration\FolderConfiguration.cs" />
     <Compile Include="EntityContext.cs" />
     <Compile Include="File.cs" />
     <Compile Include="Folder.cs" />
+    <Compile Include="MediaFile.cs" />
+    <Compile Include="MediaTypes.cs" />
+    <Compile Include="ProductionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setting.cs" />
+    <Compile Include="VideoMetaData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MediaManager.Interfaces\MediaManager.Interfaces.csproj">
