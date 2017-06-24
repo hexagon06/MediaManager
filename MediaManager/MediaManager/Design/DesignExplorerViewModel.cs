@@ -16,6 +16,8 @@ namespace MediaManager.Design
 
         public ICommand AddFolderCommand { get; set; }
 
+        public ICommand RescanSingleCommand { get; set; }
+
         public ObservableCollection<IFolder> Folders { get; set; }
     }
 }

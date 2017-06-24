@@ -55,9 +55,15 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Name}" />
                             <Label Grid.Column="1" Content="{Binding FileCount}" />
+                            <Button Grid.Column="2" Content="Rescan" Command="{Binding 
+                                RelativeSource={RelativeSource FindAncestor, 
+                                AncestorType={x:Type Controls:MetroWindow}}, 
+                                Path=DataContext.RescanSingleCommand}" 
+                                    CommandParameter="{Binding}"/>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

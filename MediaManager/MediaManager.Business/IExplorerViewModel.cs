@@ -13,6 +13,7 @@ namespace MediaManager.Business
     {
         ICommand RescanAllCommand { get; }
         ICommand AddFolderCommand { get; }
+        ICommand RescanSingleCommand { get; }
 
         ObservableCollection<IFolder> Folders { get; }
     }

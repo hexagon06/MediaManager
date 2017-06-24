@@ -22,6 +22,8 @@ namespace MediaManager.Business.ViewModels
 
         public ICommand AddFolderCommand { get { return new RelayCommand(ExecuteAddFolder); } }
 
+        public ICommand RescanSingleCommand { get { return new RelayCommand<IFolder>(ExecuteRescanSingle); } }
+
         public ObservableCollection<IFolder> Folders { get; private set; }
 
         private IFolderController FolderController { get; set; }
@@ -91,6 +93,11 @@ namespace MediaManager.Business.ViewModels
             }
         }
 
+        private void ExecuteRescanSingle(IFolder folder)
+        {
+            ScanFolder(folder);
+        }
+
         private static bool IsDirectory(string path)
         {
             var attributes = System.IO.File.GetAttributes(path);
@@ -117,6 +124,8 @@ namespace MediaManager.Business.ViewModels
                 });
 
             FileController.Add(files, folder.Id);
+
+
         }
     }
 }
