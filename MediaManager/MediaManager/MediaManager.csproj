@@ -201,10 +201,6 @@
       <Project>{bd029fe0-e650-452d-bcc6-2c85194507ee}</Project>
       <Name>MediaManager.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MediaManager.Models\MediaManager.Models.csproj">
-      <Project>{D7534556-E840-43A2-8473-3E7CC771484E}</Project>
-      <Name>MediaManager.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\WindowsIcons-license.txt" />

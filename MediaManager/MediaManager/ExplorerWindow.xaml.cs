@@ -23,6 +23,8 @@ namespace MediaManager
     /// </summary>
     public partial class ExplorerWindow
     {
+        private IExplorerViewModel Model { get; set; }
+
         public ExplorerWindow()
         {
             InitializeComponent();
@@ -30,7 +32,12 @@ namespace MediaManager
             var types = ApplicationConfig.MediaTypes;
             var mediatypes = new MediaTypes(types);
 
-            DataContext = IoCKernel.Get<IExplorerViewModel>(new ConstructorArgument("mediaTypes", mediatypes,true));
+            DataContext = Model = IoCKernel.Get<IExplorerViewModel>(new ConstructorArgument("mediaTypes", mediatypes,true));
+        }
+
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DialogResult = Model.HasChanged;
         }
     }
 }

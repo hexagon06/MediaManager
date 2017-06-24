@@ -24,6 +24,8 @@ namespace MediaManager.Business.ViewModels
 
         public ICommand RescanSingleCommand { get { return new RelayCommand<IFolder>(ExecuteRescanSingle); } }
 
+        public bool HasChanged { get; private set; }
+
         public ObservableCollection<IFolder> Folders { get; private set; }
 
         private IFolderController FolderController { get; set; }
@@ -113,21 +115,26 @@ namespace MediaManager.Business.ViewModels
 
             var confirmed = Input.ProcessResult(folder.Name, result);
 
-            IEnumerable<IFile> files = confirmed
-                .Where(r => r.Result == ScanResult.New)
-                .Select(sr => new File()
-                {
-                    FileName = Path.GetFileNameWithoutExtension(sr.Path),
-                    Extension = sr.Extension,
-                    FileLocation = sr.Path,
-                    Root = folder.AsFolder(),
-                    RootId = folder.Id,
-                    FileSize = new FileInfo(sr.Path).Length
-                });
+            if (confirmed.Count() > 0)
+            {
+                IEnumerable<IFile> files = confirmed
+                    .Where(r => r.Result == ScanResult.New)
+                    .Select(sr => new File()
+                    {
+                        FileName = Path.GetFileNameWithoutExtension(sr.Path),
+                        Extension = sr.Extension,
+                        FileLocation = sr.Path,
+                        Root = folder.AsFolder(),
+                        RootId = folder.Id,
+                        FileSize = new FileInfo(sr.Path).Length
+                    });
 
-            var processed = FileController.Add(files, folder.Id);
-            
-            MediaFileController.AddFor(processed);
+                var processed = FileController.Add(files, folder.Id);
+
+                MediaFileController.AddFor(processed);
+
+                HasChanged = true;
+            }
         }
     }
 }

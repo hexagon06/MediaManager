@@ -18,6 +18,8 @@ namespace MediaManager.Design
 
         public ICommand RescanSingleCommand { get; set; }
 
+        public bool HasChanged { get; set; }
+
         public ObservableCollection<IFolder> Folders { get; set; }
     }
 }

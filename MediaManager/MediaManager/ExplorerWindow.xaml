@@ -11,6 +11,7 @@
                       d:DataContext="{d:DesignData Source=Design/DesignExplorerViewModel.xaml}"
                       Title="ExplorerWindow" 
                       Height="300" Width="300"
+                      Closing="MetroWindow_Closing"
                       RightWindowCommandsOverlayBehavior="Flyouts">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>

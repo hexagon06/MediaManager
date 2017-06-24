@@ -11,6 +11,8 @@ namespace MediaManager.Business
 {
     public interface IExplorerViewModel
     {
+        bool HasChanged { get; }
+
         ICommand RescanAllCommand { get; }
         ICommand AddFolderCommand { get; }
         ICommand RescanSingleCommand { get; }

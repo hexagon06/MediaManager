@@ -15,7 +15,7 @@ namespace MediaManager
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var explorer = new ExplorerWindow();
-            explorer.Show();
+            var result = explorer.ShowDialog() ?? false;
         }
     }
 }
