@@ -12,5 +12,6 @@ namespace MediaManager.Interfaces
         string FileName { get; }
         string Extension { get; }
         long FileSize { get; set; }
+        IMediaFile Media { get; set; }
     }
 }

@@ -7,8 +7,11 @@ namespace MediaManager.Interfaces
 {
     public interface IMediaMetaData
     {
+        int MetaDataId { get; set; }
         float Rating { get; set; }
         string Description { get; set; }
+        
+        IMediaFile MediaFile { get; set; }
 
         IEnumerable<ILabel> Labels { get; } 
         void AddLabel(ILabel label);

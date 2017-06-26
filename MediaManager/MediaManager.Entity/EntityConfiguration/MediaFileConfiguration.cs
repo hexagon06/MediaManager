@@ -14,8 +14,12 @@ namespace MediaManager.Entity.EntityConfiguration
             this.Property(m => m.MediaType);
             this.Property(m => m.DateAdded);
             this.Property(m => m.Label);
+
             this.Ignore(m => m.MetaData);
             this.Ignore(m => m.ProductionData);
+
+            this.HasOptional(m => m.MediaMetaData)
+                .WithRequired(md => md.Media);
         }
     }
 }

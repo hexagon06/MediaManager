@@ -2,12 +2,36 @@
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:MediaManager.Design">
-    <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
-    <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
-    <local:DesignMedia DateAdded="12-12-2012" Label="Audio File" MediaFileId="12" MediaType="Audio" />
-    <local:DesignMedia DateAdded="12-12-2012" Label="Audio File" MediaFileId="12" MediaType="Audio" />
-    <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
-    <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
-    <local:DesignMedia DateAdded="12-12-2012" Label="Audio File" MediaFileId="12" MediaType="Audio" />
+    <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" >
+        <local:DesignMedia.MetaData>
+            <local:DesignMediaMetaData Rating="0" Description="Some audio file" />
+        </local:DesignMedia.MetaData>
+    </local:DesignMedia>
+    <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" >
+        <local:DesignMedia.MetaData>
+            <local:DesignMediaMetaData Rating="1" Description="Some audio file" />
+        </local:DesignMedia.MetaData>
+    </local:DesignMedia>
+    <local:DesignMedia DateAdded="12-12-2012" Label="Audio File" MediaFileId="12" MediaType="Audio" >
+        <local:DesignMedia.MetaData>
+            <local:DesignMediaMetaData Rating="2" Description="Some audio file" />
+        </local:DesignMedia.MetaData>
+    </local:DesignMedia>
+    <local:DesignMedia DateAdded="12-12-2012" Label="Audio File" MediaFileId="12" MediaType="Audio" >
+        <local:DesignMedia.MetaData>
+            <local:DesignMediaMetaData Rating="3" Description="Some audio file" />
+        </local:DesignMedia.MetaData>
+    </local:DesignMedia>
+    <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" >
+        <local:DesignMedia.MetaData>
+            <local:DesignMediaMetaData Rating="4" Description="Some audio file" />
+        </local:DesignMedia.MetaData>
+    </local:DesignMedia>
+    <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" >
+        <local:DesignMedia.MetaData>
+            <local:DesignMediaMetaData Rating="5" Description="Some audio file" />
+        </local:DesignMedia.MetaData>
+    </local:DesignMedia>
+    <local:DesignMedia DateAdded="12-12-2012" Label="Audio File" MediaFileId="12" MediaType="Audio"/>
     <local:DesignMedia DateAdded="12-12-2012" Label="Image File" MediaFileId="12" MediaType="Image" />
 </local:DesignMediaCollection>

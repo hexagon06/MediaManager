@@ -13,7 +13,11 @@ namespace MediaManager.Entity
         public int FileId { get; set; }
         public int RootId { get; set; }
         public Folder Root { get; set; }
+
+        [ForeignKey("MediaFileId")]
         public MediaFile MediaFile { get; set; }
+        public IMediaFile Media { get { return MediaFile; } set { MediaFile = value as MediaFile; } }
+
         public string FileLocation { get; set; }
         public string FileName { get; set; }
         public string Extension { get; set; }

@@ -10,6 +10,7 @@ namespace MediaManager.Entity
         public virtual IDbSet<File> Files { get; set; }
         public virtual IDbSet<Setting> Settings { get; set; }
         public virtual IDbSet<MediaFile> MediaFiles { get; set; }
+        public virtual IDbSet<AbstractMediaMetaData> MetaData { get; set; }
 
         public EntityContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
@@ -28,6 +29,16 @@ namespace MediaManager.Entity
             modelBuilder.Configurations.Add(new FileConfiguration());
             modelBuilder.Configurations.Add(new SettingConfiguration());
             modelBuilder.Configurations.Add(new MediaFileConfiguration());
+
+            modelBuilder.Entity<VideoMetaData>().Map(m =>
+            {
+                m.ToTable("VideoMetaData");
+            });
+
+            modelBuilder.Entity<AudioMetaData>().Map(m =>
+            {
+                m.ToTable("AudioMetaData");
+            });
         }
     }
 }

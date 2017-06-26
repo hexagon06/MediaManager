@@ -28,7 +28,8 @@ namespace MediaManager.Business
                 FileLocation = file.FileLocation,
                 FileName = file.FileName,
                 FileSize = file.FileSize,
-                FileId = file.FileId
+                FileId = file.FileId,
+                Media = file.Media
             };
         }
 

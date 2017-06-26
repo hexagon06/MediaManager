@@ -34,13 +34,15 @@ namespace MediaManager.Business
                 MediaFileId = file.FileId,
                 DateAdded = DateTime.Now,
                 Label = file.FileName,
-                File =file.AsFile(),
                 MediaType = mediaType,
-                MetaData = metaData,
                 ProductionData = productionData
             };
 
             return media;
+        }
+        public IMediaMetaData GetMediaMetaData(IMediaFile media)
+        {
+            return GetMetaData(media.MediaType);
         }
 
         private IProductionData GetProductionData()
@@ -68,5 +70,6 @@ namespace MediaManager.Business
         {
             return Types.GetFileType(file.Extension);
         }
+
     }
 }

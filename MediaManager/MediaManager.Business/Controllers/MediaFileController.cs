@@ -40,6 +40,7 @@ namespace MediaManager.Business.Controllers
         public IEnumerable<IMediaFile> GetList()
         {
             return MediaRepository.Entities
+                .Include(m => m.MediaMetaData)
                 .ToList();
         }
 
@@ -47,6 +48,7 @@ namespace MediaManager.Business.Controllers
         {
             return MediaRepository.Entities
                 .Include(m => m.File)
+                .Include(m => m.MediaMetaData)
                 .Single(m => m.MediaFileId == id);
         }
     }

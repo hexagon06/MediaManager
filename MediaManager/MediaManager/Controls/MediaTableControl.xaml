@@ -27,21 +27,7 @@
             </DataGridTemplateColumn>
             <DataGridTextColumn Header="Label" Binding="{Binding Label}"/>
             <DataGridTextColumn Header="Added" Binding="{Binding DateAdded, StringFormat=\{0:dd/MM/yyyy\}}" IsReadOnly="True" />
+            <DataGridTextColumn Header="Rating" Binding="{Binding MetaData.Rating}"/>
         </DataGrid.Columns>
     </DataGrid>
-
-    <!--<ItemsControl ItemsSource="{Binding}" >
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="50"/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="2" Content="{Binding Label}" />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>-->
-    <!--</ItemsControl>-->
 </UserControl>

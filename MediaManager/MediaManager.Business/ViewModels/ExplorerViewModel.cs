@@ -33,14 +33,16 @@ namespace MediaManager.Business.ViewModels
         private IMediaFileController MediaFileController { get; set; }
         private IFolderScanner Scanner { get; set; }
         private IUserInput Input { get; set; }
+        private IMediaFactory Factory { get; set; }
 
-        public ExplorerViewModel(IFolderController folderController, IFileController fileController, IMediaFileController mediaFileController, IFolderScanner scanner, IUserInput input)
+        public ExplorerViewModel(IFolderController folderController, IFileController fileController, IMediaFileController mediaFileController, IMediaFactory factory, IFolderScanner scanner, IUserInput input)
         {
             FolderController = folderController;
             FileController = fileController;
             Scanner = scanner;
             Input = input;
             MediaFileController = mediaFileController;
+            Factory = factory;
             Folders = new ObservableCollection<IFolder>(FolderController.GetList());
         }
 
@@ -127,12 +129,20 @@ namespace MediaManager.Business.ViewModels
                         Root = folder.AsFolder(),
                         RootId = folder.Id,
                         FileSize = new FileInfo(sr.Path).Length
-                    });
+                        //- to list must be done, otherwise the following population will be lost
+                    }).ToList();
+
+                //- populate required entity tree
+                foreach (var file in files)
+                {
+                    IMediaFile media = Factory.GetMediaFile(file);
+                    file.Media = media;
+                    IMediaMetaData meta = Factory.GetMediaMetaData(media);
+                    media.MetaData = meta;
+                }
 
                 var processed = FileController.Add(files, folder.Id);
-
-                MediaFileController.AddFor(processed);
-
+                
                 HasChanged = true;
             }
         }
