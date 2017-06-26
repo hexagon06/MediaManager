@@ -90,9 +90,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\MediaTableControl.xaml.cs">
+      <DependentUpon>MediaTableControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SettingsFlyout.xaml.cs">
       <DependentUpon>SettingsFlyout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BaseConverter.cs" />
+    <Compile Include="Converters\MediaTypeConverter.cs" />
+    <Compile Include="Design\DesignLibraryViewModel.cs" />
+    <Compile Include="Design\DesignMedia.cs" />
+    <Compile Include="Design\DesignMediaCollection.cs" />
     <Compile Include="Design\DesignScanResultChoice.cs" />
     <Compile Include="Design\DesignScanResultViewModel.cs" />
     <Compile Include="NullVisibilityConverter.cs" />
@@ -108,14 +116,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </DesignData>
+    <Page Include="Controls\MediaTableControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SettingsFlyout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Design\DesignExplorerViewModel.xaml">
+    <DesignData Include="Design\DesignExplorerViewModel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </DesignData>
+    <DesignData Include="Design\DesignLibraryViewModel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
+    <DesignData Include="Design\DesignMediaCollection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
     <Page Include="ExplorerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

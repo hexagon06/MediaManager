@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaManager", "MediaManager\MediaManager.csproj", "{22FC2E36-C432-4B10-A12D-5A964BEAC9B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01D84456-8625-4D7D-972E-CDB37844D5B8} = {01D84456-8625-4D7D-972E-CDB37844D5B8}
+		{7C5FA995-E958-40BA-9201-7C08BC33778E} = {7C5FA995-E958-40BA-9201-7C08BC33778E}
+		{BD029FE0-E650-452D-BCC6-2C85194507EE} = {BD029FE0-E650-452D-BCC6-2C85194507EE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaManager.Scanner", "MediaManager.Scanner\MediaManager.Scanner.csproj", "{8CFA07E7-83D7-4485-A8B3-FB10CC9DFADE}"
 EndProject

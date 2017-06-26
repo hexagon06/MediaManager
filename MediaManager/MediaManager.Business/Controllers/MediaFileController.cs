@@ -9,6 +9,7 @@ using JLS.Data.Generic;
 namespace MediaManager.Business.Controllers
 {
     using Entity;
+    using System.Data.Entity;
 
     class MediaFileController : IMediaFileController
     {
@@ -34,6 +35,19 @@ namespace MediaManager.Business.Controllers
                 MediaRepository.Add(mediaFile.AsMediaFile());
             }
             MediaRepository.Save();
+        }
+
+        public IEnumerable<IMediaFile> GetList()
+        {
+            return MediaRepository.Entities
+                .ToList();
+        }
+
+        public IMediaFile Single(int id)
+        {
+            return MediaRepository.Entities
+                .Include(m => m.File)
+                .Single(m => m.MediaFileId == id);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MediaManager.Business;
+using System.Windows;
 
 namespace MediaManager
 {
@@ -7,9 +8,13 @@ namespace MediaManager
     /// </summary>
     public partial class MainWindow
     {
+        private ILibraryViewModel Model { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = Model = IoCKernel.Get<ILibraryViewModel>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

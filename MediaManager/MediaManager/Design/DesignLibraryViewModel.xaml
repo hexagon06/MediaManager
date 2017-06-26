@@ -1,0 +1,15 @@
+﻿<local:DesignLibraryViewModel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MediaManager.Design">
+    <local:DesignLibraryViewModel.Media>
+        <local:DesignMediaCollection>
+            <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
+            <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
+            <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
+            <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
+            <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
+            <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
+            <local:DesignMedia DateAdded="12-12-2012" Label="Video File" MediaFileId="12" MediaType="Video" />
+        </local:DesignMediaCollection>
+    </local:DesignLibraryViewModel.Media>
+</local:DesignLibraryViewModel>

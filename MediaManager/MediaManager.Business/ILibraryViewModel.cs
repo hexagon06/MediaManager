@@ -1,16 +1,15 @@
 ﻿using MediaManager.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MediaManager.Business
 {
-    public interface IMediaFileController
+    public interface ILibraryViewModel
     {
-        void Add(IEnumerable<IMediaFile> media);
-        void AddFor(IEnumerable<IFile> files);
-        IEnumerable<IMediaFile> GetList();
+        ObservableCollection<IMediaFile> Media { get; }
     }
 }

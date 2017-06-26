@@ -13,8 +13,8 @@ namespace MediaManager.Design
     {
         public string Label { get; set; }
 
-        public ICommand IgnoreAllCommand => throw new NotImplementedException();
+        public ICommand IgnoreAllCommand { get; }
 
-        public ICommand AddAllCommand => throw new NotImplementedException();
+        public ICommand AddAllCommand { get; }
     }
 }
