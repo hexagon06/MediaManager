@@ -100,6 +100,7 @@
     <Compile Include="Scanner\ScanResultViewModel.cs" />
     <Compile Include="ScanResult.cs" />
     <Compile Include="ScanResultOption.cs" />
+    <Compile Include="UpdateBroadcast.cs" />
     <Compile Include="ViewModels\ExplorerViewModel.cs" />
     <Compile Include="ViewModels\LibraryViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />

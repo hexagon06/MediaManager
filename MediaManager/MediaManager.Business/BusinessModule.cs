@@ -22,6 +22,9 @@ namespace MediaManager.Business
             Bind<ISettingController>().To<SettingController>();
             Bind<ISettingsViewModel>().To<SettingsViewModel>().InSingletonScope();
             Bind<IMediaFactory>().To<MediaFactory>();
+            //- broadcasting
+            Bind<IMediaBroadcaster>().To<UpdateBroadcast>();
+            Bind<IMediaSubscription>().To<UpdateSubscription>();
         }
     }
 }

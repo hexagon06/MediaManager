@@ -21,6 +21,7 @@ namespace MediaManager
         {
             var explorer = new ExplorerWindow();
             var result = explorer.ShowDialog() ?? false;
+            
         }
     }
 }

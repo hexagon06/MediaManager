@@ -14,13 +14,25 @@ namespace MediaManager.Business.ViewModels
 
         private IMediaFileController MediaFileController { get; set; }
         private IUserInput Input { get; set; }
+        private IMediaSubscription Subscription { get; set; }
 
-        public LibraryViewModel(IMediaFileController mediaFileController, IUserInput input)
+        public LibraryViewModel(IMediaFileController mediaFileController, IUserInput input, IMediaSubscription subscription)
         {
             MediaFileController = mediaFileController;
             Input = input;
+            Subscription = subscription;
+
+            subscription.Subscribe(NewMediaHandler);
 
             Media = new ObservableCollection<IMediaFile>(MediaFileController.GetList());
+        }
+
+        private void NewMediaHandler(object sender, NewMediaEventArgs e)
+        {
+            foreach (var media in e.Media)
+            {
+                Media.Add(media);
+            }
         }
     }
 }

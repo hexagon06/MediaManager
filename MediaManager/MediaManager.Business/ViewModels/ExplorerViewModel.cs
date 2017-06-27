@@ -34,8 +34,9 @@ namespace MediaManager.Business.ViewModels
         private IFolderScanner Scanner { get; set; }
         private IUserInput Input { get; set; }
         private IMediaFactory Factory { get; set; }
+        private IMediaBroadcaster Broadcaster { get; set; }
 
-        public ExplorerViewModel(IFolderController folderController, IFileController fileController, IMediaFileController mediaFileController, IMediaFactory factory, IFolderScanner scanner, IUserInput input)
+        public ExplorerViewModel(IFolderController folderController, IFileController fileController, IMediaFileController mediaFileController, IMediaFactory factory, IFolderScanner scanner, IUserInput input, IMediaBroadcaster broadcaster)
         {
             FolderController = folderController;
             FileController = fileController;
@@ -43,6 +44,7 @@ namespace MediaManager.Business.ViewModels
             Input = input;
             MediaFileController = mediaFileController;
             Factory = factory;
+            Broadcaster = broadcaster;
             Folders = new ObservableCollection<IFolder>(FolderController.GetList());
         }
 
@@ -142,7 +144,9 @@ namespace MediaManager.Business.ViewModels
                 }
 
                 var processed = FileController.Add(files, folder.Id);
-                
+
+                Broadcaster.SendNewMediaMessage(processed.Select(f => f.Media));
+
                 HasChanged = true;
             }
         }
