@@ -10,7 +10,7 @@ namespace MediaManager.Business.ViewModels
 {
     class LibraryViewModel : ILibraryViewModel
     {
-        public ObservableCollection<IMediaFile> Media { get; private set; }
+        public ObservableCollection<ISelectableMediaFile> Media { get; private set; }
 
         private IMediaFileController MediaFileController { get; set; }
         private IUserInput Input { get; set; }
@@ -24,14 +24,15 @@ namespace MediaManager.Business.ViewModels
 
             subscription.Subscribe(NewMediaHandler);
 
-            Media = new ObservableCollection<IMediaFile>(MediaFileController.GetList());
+            Media = new ObservableCollection<ISelectableMediaFile>(
+                MediaFileController.GetList().Select(mf => new SelectableMediaFile(mf)));
         }
 
         private void NewMediaHandler(object sender, NewMediaEventArgs e)
         {
             foreach (var media in e.Media)
             {
-                Media.Add(media);
+                Media.Add(new SelectableMediaFile(media));
             }
         }
     }

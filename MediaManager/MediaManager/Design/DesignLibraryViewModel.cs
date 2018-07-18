@@ -6,11 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using MediaManager.Interfaces;
 using System.Collections.ObjectModel;
+using MediaManager.Business.ViewModels;
 
 namespace MediaManager.Design
 {
     class DesignLibraryViewModel : ILibraryViewModel
     {
-        public ObservableCollection<IMediaFile> Media { get; set; }
+        public ObservableCollection<ISelectableMediaFile> Media { get; set; }
     }
 }

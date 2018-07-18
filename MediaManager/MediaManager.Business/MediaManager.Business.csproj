@@ -102,7 +102,9 @@
     <Compile Include="ScanResultOption.cs" />
     <Compile Include="UpdateBroadcast.cs" />
     <Compile Include="ViewModels\ExplorerViewModel.cs" />
+    <Compile Include="ViewModels\ISelectableMediaFile.cs" />
     <Compile Include="ViewModels\LibraryViewModel.cs" />
+    <Compile Include="ViewModels\SelectableMediaFile.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\StringRequest.cs" />
   </ItemGroup>

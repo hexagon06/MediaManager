@@ -1,4 +1,5 @@
-﻿using MediaManager.Interfaces;
+﻿using MediaManager.Business.ViewModels;
+using MediaManager.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace MediaManager.Design
 {
-    class DesignMedia : IMediaFile
+    class DesignMedia : ISelectableMediaFile
     {
         public DateTime DateAdded { get; set; }
+
+        public bool IsSelected { get; set; }
 
         public string Label { get; set; }
 

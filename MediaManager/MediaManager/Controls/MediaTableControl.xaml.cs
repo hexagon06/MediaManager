@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MediaManager.Business.ViewModels;
+using MediaManager.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,45 @@ namespace MediaManager.Controls
         public MediaTableControl()
         {
             InitializeComponent();
+        }
+        
+        private IEnumerable<ISelectableMediaFile> GetSelected()
+        {
+            return this.DisplayGrid.SelectedItems.OfType<ISelectableMediaFile>();
+        }
+        
+
+        private void EditItems(object sender, RoutedEventArgs e)
+        {
+            var selected = GetSelected();
+            
+            //- bulk edit
+        }
+
+        private void SelectItems(object sender, RoutedEventArgs e)
+        {
+            var selected = GetSelected();
+
+            foreach (var media in selected)
+            {
+                media.IsSelected = true;
+            }
+        }
+
+        private void CreatePlaylist(object sender, RoutedEventArgs e)
+        {
+            var selected = GetSelected();
+
+            //- create playlist
+            //- add selected
+        }
+
+        private void AddToPlaylist(object sender, RoutedEventArgs e)
+        {
+            var selected = GetSelected();
+
+            //- get existing playlist
+            //- add selected
         }
     }
 }

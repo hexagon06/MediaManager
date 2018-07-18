@@ -12,9 +12,17 @@
              d:DataContext="{d:DesignData Source=../Design/DesignMediaCollection.xaml}"
              
              d:DesignHeight="300" >
-    <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False">
+    <DataGrid x:Name="DisplayGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
+        <DataGrid.ContextMenu>
+            <ContextMenu >
+                <MenuItem Header="Select" Click="SelectItems"  />
+                <MenuItem Header="Edit" Click="EditItems" IsEnabled="False" />
+                <MenuItem Header="Create Playlist" Click="CreatePlaylist"  />
+                <MenuItem Header="Add to Playlist" Click="AddToPlaylist"   />
+            </ContextMenu>
+        </DataGrid.ContextMenu>
         <DataGrid.Columns>
-            <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+            <DataGridCheckBoxColumn Binding="{Binding IsSelected}" ElementStyle="{DynamicResource MetroDataGridCheckBox}"
                                         EditingElementStyle="{DynamicResource MetroDataGridCheckBox}">
                 <!-- for more styling and options see http://mahapps.com/controls/datagrid.html -->
             </DataGridCheckBoxColumn>

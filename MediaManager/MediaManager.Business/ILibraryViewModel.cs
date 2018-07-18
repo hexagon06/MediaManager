@@ -1,4 +1,5 @@
-﻿using MediaManager.Interfaces;
+﻿using MediaManager.Business.ViewModels;
+using MediaManager.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,6 @@ namespace MediaManager.Business
 {
     public interface ILibraryViewModel
     {
-        ObservableCollection<IMediaFile> Media { get; }
+        ObservableCollection<ISelectableMediaFile> Media { get; }
     }
 }
